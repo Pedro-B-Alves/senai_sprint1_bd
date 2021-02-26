@@ -2,6 +2,25 @@ CREATE DATABASE Locadora;
 
 USE Locadora;
 
+CREATE TABLE Empresas
+(
+	idEmpresa	INT PRIMARY KEY IDENTITY
+	,Nome		VARCHAR(150) NOT NULL
+);
+
+CREATE TABLE Marcas
+(
+	idMarca		INT PRIMARY KEY IDENTITY
+	,Nome		VARCHAR(150) NOT NULL
+);
+
+CREATE TABLE Modelos
+(
+	idModelo		INT PRIMARY KEY IDENTITY
+	,Descricao		VARCHAR(150) NOT NULL
+	,idMarca		INT FOREIGN KEY REFERENCES Marcas (idMarca)
+);
+
 CREATE TABLE Clientes
 (
 	idCliente	INT PRIMARY KEY IDENTITY
@@ -11,34 +30,17 @@ CREATE TABLE Clientes
 
 CREATE TABLE Alugueis
 (
-	idAluguel	INT PRIMARY KEY IDENTITY
-	,idCliente	INT FOREIGN KEY REFERENCES Clientes (idCliente)
-);
-
-CREATE TABLE Marcas
-(
-	idMarca	INT PRIMARY KEY IDENTITY
-	,Marca		VARCHAR(150) NOT NULL
-);
-
-CREATE TABLE Modelos
-(
-	idModelo	INT PRIMARY KEY IDENTITY
-	,Modelo		VARCHAR(150) NOT NULL
-	,idMarca	INT FOREIGN KEY REFERENCES Marcas (idMarca)
+	idAluguel		INT PRIMARY KEY IDENTITY
+	,DataInicio		VARCHAR(150) NOT NULL
+	,DataFim		VARCHAR(150) NOT NULL
+	,idCliente		INT FOREIGN KEY REFERENCES Clientes (idCliente)
 );
 
 CREATE TABLE Veiculos
 (
-	idVeiculo	INT PRIMARY KEY IDENTITY
-	,Placa		VARCHAR(150) NOT NULL
-	,idModelo	INT FOREIGN KEY REFERENCES Modelos (idModelo)
-	,idAluguel	INT FOREIGN KEY REFERENCES Alugueis (idAluguel)
-);
-
-CREATE TABLE Empresas
-(
-	idEmpresa	INT PRIMARY KEY IDENTITY
-	,Nome		VARCHAR(150) NOT NULL
-	,idVeiculo	INT FOREIGN KEY REFERENCES Veiculos (idVeiculo)
+	idVeiculo		INT PRIMARY KEY IDENTITY
+	,Placa			VARCHAR(150) NOT NULL
+	,idEmpresa		INT FOREIGN KEY REFERENCES Empresas (idEmpresa)
+	,idMarca		INT FOREIGN KEY REFERENCES Marcas (idMarca)
+	,idAluguel		INT FOREIGN KEY REFERENCES Alugueis (idAluguel)
 );
