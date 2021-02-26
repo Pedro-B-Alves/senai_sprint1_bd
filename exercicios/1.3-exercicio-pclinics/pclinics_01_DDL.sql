@@ -6,20 +6,19 @@ CREATE TABLE Donos
 (
 	idDono	INT PRIMARY KEY IDENTITY
 	,Nome	VARCHAR(150) NOT NULL
-	,CPF	VARCHAR(150) NOT NULL
+);
+
+CREATE TABLE TiposPets
+(
+	idTipoPet	INT PRIMARY KEY IDENTITY
+	,Descricao	VARCHAR(150) NOT NULL
 );
 
 CREATE TABLE Racas
 (
-	idRaca	INT PRIMARY KEY IDENTITY
-	,Raca	VARCHAR(150) NOT NULL
-);
-
-CREATE TABLE TiposDePets
-(
-	idTipoDePet	INT PRIMARY KEY IDENTITY
-	,Tipo	VARCHAR(150) NOT NULL
-	,idRaca INT FOREIGN KEY REFERENCES Racas (idRaca)
+	idRaca		INT PRIMARY KEY IDENTITY
+	,Descricao	VARCHAR(150) NOT NULL
+	,idTipoPet	INT FOREIGN KEY REFERENCES TiposPets (idTipoPet)
 );
 
 CREATE TABLE Pets
@@ -27,26 +26,33 @@ CREATE TABLE Pets
 	idPet				INT PRIMARY KEY IDENTITY
 	,Nome				VARCHAR(150) NOT NULL
 	,DataDeNascimento	VARCHAR(150) NOT NULL
-	,idDono				INT FOREIGN KEY REFERENCES Donos (idDono)
-	,idTipoDePet		INT FOREIGN KEY REFERENCES TiposDePets (idTipoDePet)
+	,idRaca				INT FOREIGN KEY REFERENCES Racas (idRaca)
+	,idDono			INT FOREIGN KEY REFERENCES Donos (idDono)
 );
 
-CREATE TABLE Atendimentos
+CREATE TABLE Clinicas
 (
-	idAtendimento	INT PRIMARY KEY IDENTITY
-	,idPet			INT FOREIGN KEY REFERENCES Pets (idPet)
+	idClinica		INT PRIMARY KEY IDENTITY
+	,RazaoSocial	VARCHAR(150) NOT NULL
+	,CNPJ			VARCHAR(150) NOT NULL
+	,Endereco		VARCHAR(150) NOT NULL
+	
 );
 
 CREATE TABLE Veterinarios
 (
 	idVeterinario	INT PRIMARY KEY IDENTITY
-	,idAtendimento	INT FOREIGN KEY REFERENCES Atendimentos (idAtendimento)
+	,Nome			VARCHAR(150) NOT NULL
+	,CRMV			VARCHAR(150) NOT NULL
+	,idClinica		INT FOREIGN KEY REFERENCES Clinicas (idClinica)
 );
 
-CREATE TABLE Clinicas
+CREATE TABLE Atendimentos
 (
-	idClinica	INT PRIMARY KEY IDENTITY
-	,Endereco	VARCHAR(150) NOT NULL
-	,idVeterinario INT FOREIGN KEY REFERENCES Veterinarios (idVeterinario)
-	,idPet INT FOREIGN KEY REFERENCES Pets (idPet)
+	idAtendimento		INT PRIMARY KEY IDENTITY
+	,Descricao			VARCHAR(150) NOT NULL
+	,DataAtendimento	VARCHAR(150) NOT NULL
+	,idVeterinario		INT FOREIGN KEY REFERENCES Veterinarios (idVeterinario)
+	,idPet				INT FOREIGN KEY REFERENCES Pets (idPet)
 );
+

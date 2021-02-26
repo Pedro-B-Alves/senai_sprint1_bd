@@ -28,19 +28,19 @@ CREATE TABLE Clientes
 	,CPF		VARCHAR(150) NOT NULL
 );
 
+CREATE TABLE Veiculos
+(
+	idVeiculo		INT PRIMARY KEY IDENTITY
+	,Placa			VARCHAR(150) NOT NULL
+	,idModelo		INT FOREIGN KEY REFERENCES Modelos (idModelo)
+	,idEmpresa		INT FOREIGN KEY REFERENCES Empresas (idEmpresa)
+);
+
 CREATE TABLE Alugueis
 (
 	idAluguel		INT PRIMARY KEY IDENTITY
 	,DataInicio		VARCHAR(150) NOT NULL
 	,DataFim		VARCHAR(150) NOT NULL
 	,idCliente		INT FOREIGN KEY REFERENCES Clientes (idCliente)
-);
-
-CREATE TABLE Veiculos
-(
-	idVeiculo		INT PRIMARY KEY IDENTITY
-	,Placa			VARCHAR(150) NOT NULL
-	,idEmpresa		INT FOREIGN KEY REFERENCES Empresas (idEmpresa)
-	,idMarca		INT FOREIGN KEY REFERENCES Marcas (idMarca)
-	,idAluguel		INT FOREIGN KEY REFERENCES Alugueis (idAluguel)
+	,idVeiculo		INT FOREIGN KEY REFERENCES Veiculos (idVeiculo)
 );
