@@ -25,9 +25,9 @@ CREATE TABLE Pets
 (
 	idPet				INT PRIMARY KEY IDENTITY
 	,Nome				VARCHAR(150) NOT NULL
-	,DataDeNascimento	VARCHAR(150) NOT NULL
+	,DataNascimento		VARCHAR(150) NOT NULL
 	,idRaca				INT FOREIGN KEY REFERENCES Racas (idRaca)
-	,idDono			INT FOREIGN KEY REFERENCES Donos (idDono)
+	,idDono				INT FOREIGN KEY REFERENCES Donos (idDono)
 );
 
 CREATE TABLE Clinicas

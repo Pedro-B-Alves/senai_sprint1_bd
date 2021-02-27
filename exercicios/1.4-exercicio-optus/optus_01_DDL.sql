@@ -2,25 +2,19 @@ CREATE DATABASE Optus;
 
 USE Optus;
 
-CREATE TABLE TiposDePermicoes
-(
-	idTipoDePermicao	INT PRIMARY KEY IDENTITY
-	,Tipo				VARCHAR(150) NOT NULL
-);
-
 CREATE TABLE Usuarios
 (
-	idUsuario			INT PRIMARY KEY IDENTITY
-	,Nome				VARCHAR(150) NOT NULL
-	,Email				VARCHAR(150) NOT NULL
-	,Senha				VARCHAR(150) NOT NULL
-	,idTipoDePermicao INT FOREIGN KEY REFERENCES TiposDePermicoes (idTipoDePermicao)
+	idUsuario		INT PRIMARY KEY IDENTITY
+	,Nome			VARCHAR(150) NOT NULL
+	,Email			VARCHAR(150) NOT NULL
+	,Senha			VARCHAR(150) NOT NULL
+	,Permissao		VARCHAR(150) NOT NULL
 );
 
-CREATE TABLE Plataformas
+CREATE TABLE Artistas
 (
-	idPlataforma	INT PRIMARY KEY IDENTITY
-	,idUsuario		INT FOREIGN KEY REFERENCES Usuarios (idUsuario)
+	idArtista	INT PRIMARY KEY IDENTITY
+	,Nome		VARCHAR(150) NOT NULL
 );
 
 CREATE TABLE Estilos
@@ -33,24 +27,15 @@ CREATE TABLE Albuns
 (
 	idAlbum					INT PRIMARY KEY IDENTITY
 	,Titulo					VARCHAR(150) NOT NULL
-	,DataDeLancamento		VARCHAR(150) NOT NULL
+	,DataLancamento			VARCHAR(150) NOT NULL
 	,Localizacao			VARCHAR(150) NOT NULL
-	,QuantidadeMinutos		VARCHAR(150) NOT NULL
-	,Disponivel				VARCHAR(150) NOT NULL
-	,Artista				VARCHAR(150) NOT NULL
-	,idPlataforma			INT FOREIGN KEY REFERENCES Plataformas (idPlataforma)
-	,idEstilo				INT FOREIGN KEY REFERENCES Estilos (idEstilo)
+	,QtdMinutos				VARCHAR(150) NOT NULL
+	,Ativo					VARCHAR(150) NOT NULL
+	,idArtista				INT FOREIGN KEY REFERENCES Artistas (idArtista)
 );
 
-CREATE TABLE Lancamentos
+CREATE TABLE AlbunsEstilos
 (
-	idLancamento	INT PRIMARY KEY IDENTITY
-	,idAlbum		INT FOREIGN KEY REFERENCES Albuns (idAlbum)
-);
-
-CREATE TABLE Empresas
-(
-	idEmpresa		INT PRIMARY KEY IDENTITY
-	,Nome			VARCHAR(150) NOT NULL
-	,idLancamento	INT FOREIGN KEY REFERENCES Lancamentos (idLancamento)
+	idAlbum			INT FOREIGN KEY REFERENCES Albuns (idAlbum)
+	,idEstilo		INT FOREIGN KEY REFERENCES Estilos (idEstilo)
 );
