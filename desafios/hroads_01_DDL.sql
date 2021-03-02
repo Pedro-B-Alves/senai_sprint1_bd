@@ -11,5 +11,25 @@ CREATE TABLE TipoDeHabilidade
 CREATE TABLE Habilidade
 (
 	idHab INT PRIMARY KEY IDENTITY
-	,id
+	,Habilidade VARCHAR(150) NOT NULL
+	,idTipoHab INT FOREIGN KEY REFERENCES TipoDeHabilidade (idTipoHab)
+);
+
+CREATE TABLE Classe
+(
+	idClasse INT PRIMARY KEY IDENTITY
+	,Classe VARCHAR(150) NOT NULL
+	,idHab INT FOREIGN KEY REFERENCES Habilidade (idHab)
+	,idHab2 INT FOREIGN KEY REFERENCES Habilidade (idHab)
+);
+
+CREATE TABLE Personagem
+(
+	idPersonagem INT PRIMARY KEY IDENTITY
+	,Nome VARCHAR(150) NOT NULL
+	,CapVida VARCHAR(150) NOT NULL
+	,CapMana VARCHAR(150) NOT NULL
+	,DataAtualizacao VARCHAR(150) NOT NULL
+	,DataCriacao VARCHAR(150) NOT NULL
+	,idClasse INT FOREIGN KEY REFERENCES Classe (idClasse)
 );
