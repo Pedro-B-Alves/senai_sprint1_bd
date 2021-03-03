@@ -5,9 +5,11 @@ SELECT Nome AS Personagem
 FROM Personagem;
 
 --Selecionar todos as classes; 
-SELECT Classe, Habilidade AS [Habilidade Primária], Habilidade AS [Habilidade Secundária] FROM Habilidade
-RIGHT JOIN Classe
-ON (Classe.idHab = Habilidade.idHab) OR (Classe.idHab2 = Habilidade.idHab);
+SELECT CL.Classe, HB.Habilidade AS [Habilidade Primária], HA.Habilidade AS [Habilidade Secundária] FROM Habilidade HB
+RIGHT JOIN Classe CL
+ON (CL.idHab = HB.idHab)
+LEFT JOIN Habilidade HA
+ON (CL.idHab2 = HA.idHab);
 
 --Selecionar somente o nome das classes; 
 SELECT Classe
@@ -41,16 +43,18 @@ LEFT JOIN Personagem
 ON Personagem.idClasse = Classe.idClasse;
 
 --Selecionar todas as classes e suas respectivas habilidades; 
-SELECT Classe, Habilidade FROM Habilidade
-RIGHT JOIN Classe
-ON (Classe.idHab = Habilidade.idHab) OR (Classe.idHab2 = Habilidade.idHab);
+SELECT CL.Classe, HB.Habilidade AS [Habilidade Primária], HA.Habilidade AS [Habilidade Secundária] FROM Habilidade HB
+RIGHT JOIN Classe CL
+ON (CL.idHab = HB.idHab)
+LEFT JOIN Habilidade HA
+ON (CL.idHab2 = HA.idHab);
 
 --Selecionar todas as habilidades e suas classes (somente as que possuem correspondência);
-SELECT Classe, Habilidade FROM Habilidade
+SELECT Habilidade, Classe  FROM Habilidade
 LEFT JOIN Classe
 ON (Classe.idHab = Habilidade.idHab) OR (Classe.idHab2 = Habilidade.idHab);
 
 --Selecionar todas as habilidades e suas classes (mesmo que elas não tenham correspondência). 
-SELECT Classe, Habilidade FROM Habilidade
+SELECT Habilidade, Classe  FROM Habilidade
 RIGHT JOIN Classe
 ON (Classe.idHab = Habilidade.idHab) OR (Classe.idHab2 = Habilidade.idHab);
