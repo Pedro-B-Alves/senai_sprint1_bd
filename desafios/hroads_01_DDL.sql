@@ -19,8 +19,11 @@ CREATE TABLE Classe
 (
 	idClasse INT PRIMARY KEY IDENTITY
 	,Classe VARCHAR(150) NOT NULL
-	,idHab INT FOREIGN KEY REFERENCES Habilidade (idHab)
-	,idHab2 INT FOREIGN KEY REFERENCES Habilidade (idHab)
+);
+CREATE TABLE ClasseHabilidade
+(
+	idClasse	INT FOREIGN KEY REFERENCES Classe (idClasse)
+	,idHab		INT FOREIGN KEY REFERENCES Habilidade (idHab)
 );
 
 CREATE TABLE Personagem
