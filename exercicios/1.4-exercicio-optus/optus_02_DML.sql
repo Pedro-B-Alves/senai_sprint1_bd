@@ -1,7 +1,7 @@
 USE Optus;
 
 INSERT INTO Usuarios (Nome, Email, Senha, Permissao)
-VALUES ('Saulo','s.santos@gmail.com','123456','Administrador'),('Caique','c.zaneti@gmail.com','123456','Comum');
+VALUES ('Saulo','s.santos@email.com','123456','Administrador'),('Caique','c.zaneti@email.com','123456','Comum');
 
 INSERT INTO Artistas (Nome)
 VALUES ('Angra'),('Madonna'),('Shaman');
