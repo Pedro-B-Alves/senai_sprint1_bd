@@ -454,19 +454,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\saulo.santos\\.nuget\\packages\\": {}
+    "C:\\Users\\pedro\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\saulo.santos\\Downloads\\SENAI\\CT\\2021-1S-2D\\senai-dev-1s2021-alunos\\sprint-2-back-end\\manha\\01_filmes\\senai_filmes_webApi\\senai_filmes_webApi\\senai_filmes_webApi.csproj",
+      "projectUniqueName": "C:\\Users\\pedro\\OneDrive\\Área de Trabalho\\Banco de Dados\\senai_sprint1_bd\\sprint-2-back-end\\exemplos\\01_sqlclient\\01_filmes\\senai_filmes_webApi\\senai_filmes_webApi\\senai_filmes_webApi.csproj",
       "projectName": "senai_filmes_webApi",
-      "projectPath": "C:\\Users\\saulo.santos\\Downloads\\SENAI\\CT\\2021-1S-2D\\senai-dev-1s2021-alunos\\sprint-2-back-end\\manha\\01_filmes\\senai_filmes_webApi\\senai_filmes_webApi\\senai_filmes_webApi.csproj",
-      "packagesPath": "C:\\Users\\saulo.santos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\saulo.santos\\Downloads\\SENAI\\CT\\2021-1S-2D\\senai-dev-1s2021-alunos\\sprint-2-back-end\\manha\\01_filmes\\senai_filmes_webApi\\senai_filmes_webApi\\obj\\",
+      "projectPath": "C:\\Users\\pedro\\OneDrive\\Área de Trabalho\\Banco de Dados\\senai_sprint1_bd\\sprint-2-back-end\\exemplos\\01_sqlclient\\01_filmes\\senai_filmes_webApi\\senai_filmes_webApi\\senai_filmes_webApi.csproj",
+      "packagesPath": "C:\\Users\\pedro\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pedro\\OneDrive\\Área de Trabalho\\Banco de Dados\\senai_sprint1_bd\\sprint-2-back-end\\exemplos\\01_sqlclient\\01_filmes\\senai_filmes_webApi\\senai_filmes_webApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\saulo.santos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\pedro\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
